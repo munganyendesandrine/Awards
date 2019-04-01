@@ -25,18 +25,35 @@
                     {% for i in img %}
                     <div class="col-md-4">
                       <strong>{{i.user}}</strong><br>
-                      <img src="{{i.profile_photo.url}}" class="img-responsive" alt="Image" width=400 height=100 class="avatar">
+                      <img src="{{i.profile_photo.url}}" class="img-responsive" alt="Image">
                     </div>
-                    
-                   
-                    <!-- <div class="col-md-1">
-                      <strong><u>Posts</u>: {{postsNumber}} </strong>
-                    </div> -->
                     {% endfor %}
-                    <div class="col-md-2">
-                      <p class='text-center'><a href="{%url 'myprofile'%}" class="btn btn-primary ">Update Profile</a></p>
-                    </div>
+                  
                 </div>
+              <div class="imgnew">
+                <div class="row">
+                  {% for j in pic %}
+                  <div class="col-md-4">
+                    <strong>{{j.title}}</strong><br>
+                    <img src="{{j.image_landing_page.url}}" class="img-responsive" alt="Image" width=400 height=100 class="avatar">
+                  </div>
+
+                  <div class="col-md-1">
+                    <strong><u>Posted Projects</u>: {{num_posts}} </strong>
+                  </div>
+                  
+                  {% endfor %}
+              </div><br>
+              <div class="row">
+                <div class="col-md-2">
+                  <p class='text-center'><a href="{%url 'myprofile'%}" class="btn btn-primary ">Update Profile</a></p>
+                </div>
+                <div class="col-md-2">
+                  <p class='text-center'><a href="{%url 'project_image'%}" class="btn btn-primary ">Add Project</a></p>
+                </div>
+              </div>
+            
+            </div>
         </div> 
         
 </body>

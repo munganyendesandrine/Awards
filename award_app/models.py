@@ -30,5 +30,13 @@ class Projects(models.Model):
     def save_projects(self):
         self.save() 
     
+    @classmethod
+    def get_pic(cls,id):
+        Projects.objects.all()
+
+    @classmethod
+    def count_posts(cls,id):
+        Projects.objects.all().count()
+
     def __str__(self):
         return self.title
