@@ -1,5 +1,5 @@
 """
-WSGI config for Award project.
+WSGI config for award project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Award.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "award.settings")
 
 application = get_wsgi_application()
