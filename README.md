@@ -20,3 +20,15 @@ In this application, the user is able to:
 * View my profile page
 
 
+## Technologies used
+
+* Python 3.6
+* Django Framework
+* Linux/Ubuntu Operating System
+* PSQL DBMS (Database Management System)
+* Postman as API development environment
+* HTML
+* CSS
+* Bootstrap
+
+
