@@ -22,26 +22,52 @@
         <div class="container">
                 <h1><u><i>User Profile</i></u></h1>
                 <div class="row">
+                 
                     {% for i in img %}
                     <div class="col-md-4">
                       <strong>{{i.user}}</strong><br>
-                      <img src="{{i.profile_photo.url}}" class="img-responsive" alt="Image">
+                      <img src="{{i.profile_photo.url}}" class="img-responsive" alt="Image"><br>
                     </div>
                     {% endfor %}
                   
                 </div>
+                
+                    <strong><u>Posted Projects</u>: {{num_posts}} </strong>
+                
               <div class="imgnew">
                 <div class="row">
                   {% for j in pic %}
                   <div class="col-md-4">
-                    <strong>{{j.title}}</strong><br>
-                    <img src="{{j.image_landing_page.url}}" class="img-responsive" alt="Image" width=400 height=100 class="avatar">
+                    <br><strong>{{j.title}}</strong><br>
+                    <a href="" data-toggle="modal" data-target="#{{j.id}}">
+                      <img src="{{j.image_landing_page.url}}" class="img-responsive" alt="Image" width=400 height=100 class="avatar">
+                    </a>
                   </div>
-
-                  <div class="col-md-1">
-                    <strong><u>Posted Projects</u>: {{num_posts}} </strong>
-                  </div>
-                  
+      <!-- displaying Gallery images -->
+ 
+        <!-- Modal -->
+        <div id="{{j.id}}" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+           <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+               <h2 class="modal-title" style="color:green;">Project Details</h2>
+              </div>
+              <div class="modal-body">
+                <h2 > {{ j.title }} </h2><br>
+                <img src="{{j.image_landing_page.url}}" class="img-responsive" alt="Image"><br>
+                <p style="color:green;"><u>Description</u>: {{ j.detailed_description }}</p> 
+                <p style="color:green;"><u>Link To Live Site</u>:{{ j.link_to_livesite }}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end-->
                   {% endfor %}
               </div><br>
               <div class="row">
