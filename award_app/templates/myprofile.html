@@ -51,10 +51,11 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h2 class="modal-title" style="color:green;">Project Details</h2>
+                          <h2 class="modal-title"><strong>Project Details</strong></h2>
                         </div>
                         <div class="modal-body">
-                          <h2 > {{ j.title }} </h2><br>
+                          
+                          <br><h2 style="color:green;"><u>Title</u>: {{j.title}}</h2><br>
                           <img src="{{j.image_landing_page.url}}" class="img-responsive" alt="Image"><br>
                           <p style="color:green;"><u>Description</u>: {{ j.detailed_description }}</p> 
                           <p style="color:green;"><u>Link To Live Site</u>:{{ j.link_to_livesite }}</p>
