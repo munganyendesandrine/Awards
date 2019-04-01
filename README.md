@@ -9,7 +9,7 @@ MUNGANYENDE SANDRINE
 `
 # Description of project
 
-This project is for creatING an application that allows a user to post a project he/she has created and get it reviewed by his/her peers.
+This project is for creating an application that allows a user to post a project he/she has created and get it reviewed by his/her peers.
 In this application, the user is able to:
 
 * View posted projects and their details
