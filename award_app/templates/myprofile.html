@@ -1,0 +1,44 @@
+{%extends 'registration/base.html'%}
+{% block content %} 
+
+
+{% load bootstrap3 %} {% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>New Profile</title>
+  {{form.media}}
+
+{% block styles %} {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/instagclone.css' %}"> {% endblock %}
+
+</head>
+
+<body>
+        <div class="container">
+                <h1><u><i>User Profile</i></u></h1>
+                <div class="row">
+                    {% for i in img %}
+                    <div class="col-md-4">
+                      <strong>{{i.user}}</strong><br>
+                      <img src="{{i.profile_photo.url}}" class="img-responsive" alt="Image" width=400 height=100 class="avatar">
+                    </div>
+                    
+                   
+                    <!-- <div class="col-md-1">
+                      <strong><u>Posts</u>: {{postsNumber}} </strong>
+                    </div> -->
+                    {% endfor %}
+                   
+                </div>
+        </div> 
+        
+</body>
+
+</html>
+
+{% endblock %}

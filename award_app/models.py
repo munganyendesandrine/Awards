@@ -9,7 +9,7 @@ class Profile(models.Model):
     username=models.CharField(max_length =30)
     profile_photo = models.ImageField(upload_to = 'pic/')
     bio=models.CharField(max_length =30)
-    posted_projects = models.IntegerField()
+    # posted_projects = models.IntegerField()
     contacts=models.CharField(max_length =30)
 
     def __str__(self):
