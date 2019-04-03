@@ -1,5 +1,6 @@
-{%extends 'all-galleries/base.html'%} 
+{%extends 'registration/base.html'%} 
 {% block content %}
+{% load bootstrap3 %} {% load staticfiles %}
 <div class="container">
 
   <div class="row">
@@ -17,8 +18,8 @@
     {% for picture in images %}
       <div class="col-sm-6 col-md-3">
         
-          <h1>{{picture.image_name}}</h1>
-          <img src="{{picture.image.url}}" class="img-responsive">
+          <h1>{{picture.title}}</h1>
+          <img src="{{picture.image_landing_page.url}}" class="img-responsive" style="border-radius: 2%;  width:500%; ">
         
       </div>
     {% endfor %}

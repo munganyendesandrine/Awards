@@ -52,10 +52,10 @@ def search_results(request):
 
     if 'title' in request.GET and request.GET["title"]:
         search_term = request.GET.get("title")
-        searched_images = Projects.search_by_title(search_term)
+        images = Projects.search_by_title(search_term)
         message = f"{search_term}"
 
-        return render(request, 'registration/search.html',{"message":message,"images": searched_images})
+        return render(request, 'registration/search.html',{"message":message,"images":images})
 
     else:
         message = "You haven't searched for any term"

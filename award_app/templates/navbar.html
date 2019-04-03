@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" style="height:50px;">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'myprofile' %}">Projects Awards App</a>
+      <a class="navbar-brand" href="{% url 'myprofile' %}" style="text-align:center; font-size: 20px;"><b>Projects Awards App</b></a>
     </div>
   </div>
  
@@ -19,8 +19,8 @@
   {% if user.is_authenticated %}
   
   <ul>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
+    <li class="dropdown"style="margin-top:-45px; margin-left:173px;" >
+      <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false" >Account
     
                 <span class="caret"></span>
             </a>
@@ -40,7 +40,7 @@
   </ul>
   
   {% else %}
-  <li>
+  <li class="dropdown"style="margin-top:-45px; margin-left:173px;" >
     <a class='btn btn-default' href="/accounts/login">Login</a>
   </li>
 
@@ -48,7 +48,7 @@
     <!-- Adding a search form  -->
     <div class="col-sm-4 col-md-4 navbar-right" style="display:flex;">
 
-      <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+      <form class="navbar-form" role="search" action="{% url 'search_results' %}" style="margin-top:-45px;">
 
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search by Title" name="title">
