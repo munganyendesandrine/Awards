@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from .models import wingsdMerch
+from .models import Profile,Projects
 
-class MerchSerializer(serializers.ModelSerializer):
+class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = wingsdMerch
-        fields = ('name', 'description', 'price')
+        model = Profile
+        fields = ('user', 'username', 'profile_photo', 'bio', 'contacts')
+

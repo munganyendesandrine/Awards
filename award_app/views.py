@@ -6,14 +6,13 @@ from django.http import JsonResponse
 #.............
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import  wingsdMerch
-from .serializer import MerchSerializer
+from .serializer import ProfileSerializer
 
 #........
 class MerchList(APIView):
     def get(self, request, format=None):
-        all_merch = wingsdMerch.objects.all()
-        serializers = MerchSerializer(all_merch, many=True)
+        all_merch = Profile.objects.all()
+        serializers = ProfileSerializer(all_merch, many=True)
         return Response(serializers.data)
 
 # Create your views here.

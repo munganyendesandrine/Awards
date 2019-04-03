@@ -46,8 +46,3 @@ class Projects(models.Model):
         images=Projects.objects.filter(title__icontains=search_term)
         return images 
 
-
-class wingsdMerch(models.Model):
-    name = models.CharField(max_length=40)
-    description = models.TextField()
-    price = models.DecimalField(decimal_places=2, max_digits=20)
