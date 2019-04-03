@@ -7,7 +7,7 @@ from tinymce.models import HTMLField
 class Profile(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     username=models.CharField(max_length =30)
-    profile_photo = models.ImageField(upload_to = 'pic/')
+    profile_photo = models.ImageField(upload_to = 'pic/',null=True)
     bio=models.CharField(max_length =30)
     # posted_projects = models.IntegerField()
     contacts=models.CharField(max_length =30)
@@ -23,7 +23,7 @@ class Profile(models.Model):
 class Projects(models.Model):
    
     title=models.CharField(max_length =20)
-    image_landing_page=models.ImageField(upload_to = 'picture/')
+    image_landing_page=models.ImageField(upload_to = 'picture/',null=True)
     detailed_description=models.CharField(max_length =60)
     link_to_livesite=models.CharField(max_length =30)
 

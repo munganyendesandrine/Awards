@@ -12,7 +12,7 @@ $(document).ready(function(){
         alert(data['success'])
       },
     })// END of Ajax method
-    $('#id_user').val('')
+   
     $("#id_username").val('')
     $('#id_photo').val('')
     $("#id_bio").val('')
