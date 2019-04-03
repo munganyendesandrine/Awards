@@ -92,3 +92,6 @@
 </html>
 
 {% endblock %}
+{% block scripts %} {{block.super}}
+  <script type="text/javascript" src="{%static 'js/awards.js'%}"></script>
+{% endblock %}

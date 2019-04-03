@@ -2,7 +2,19 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .models import Profile,Projects
 from .forms import ProfileForm,ProjectsForm
-#ProjectsForm
+from django.http import JsonResponse
+#.............
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import  wingsdMerch
+from .serializer import MerchSerializer
+
+#........
+class MerchList(APIView):
+    def get(self, request, format=None):
+        all_merch = wingsdMerch.objects.all()
+        serializers = MerchSerializer(all_merch, many=True)
+        return Response(serializers.data)
 
 # Create your views here.
 
@@ -18,21 +30,51 @@ def profile_page(request):
     return render(request,'myprofile.html',{"img": img,"pic":pic,"num_posts":num_posts})
 
 
+# @login_required(login_url='/accounts/login/')
+# def my_profile(request):
+#     current_user = request.user
+#     if request.method == 'POST':
+#         form = ProfileForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             profile = form.save(commit=False)
+#             profile.user = current_user
+#             profile.save()
+#         return redirect('myprofilepage')
+
+#     else:
+#         form = ProfileForm()
+#     return render(request, 'profile.html', {"form": form})
+
+#----------------------------------
 @login_required(login_url='/accounts/login/')
 def my_profile(request):
     current_user = request.user
-    if request.method == 'POST':
-        form = ProfileForm(request.POST, request.FILES)
-        if form.is_valid():
-            profile = form.save(commit=False)
-            profile.user = current_user
-            profile.save()
-        return redirect('myprofilepage')
+    # if request.method == 'POST':
+    #     form = ProfileForm(request.POST, request.FILES)
+    #     if form.is_valid():
+    #         profile = form.save(commit=False)
+    #         profile.user = current_user
+    #         profile.save()
+    #     return redirect('myprofilepage')
 
-    else:
-        form = ProfileForm()
+    # else:
+    form = ProfileForm()
     return render(request, 'profile.html', {"form": form})
 
+
+def awards_profile(request):
+    user = request.POST.get('user')
+    username = request.POST.get('username')
+    profile_photo = request.POST.get('profile_photo')
+    bio = request.POST.get('bio')
+    contacts = request.POST.get('contacts')
+
+    recipient = Profile(user=user, username=username, profile_photo=profile_photo, bio=bio, contacts=contacts)
+    recipient.save()
+    send_msg(user, username, profile_photo, bio, contacts)
+    data = {'success': 'You have been successfully able to get the message'}
+    return JsonResponse(data)
+#----------------------------------
 @login_required(login_url='/accounts/login/')
 def my_picture(request):
     current_user = request.user
@@ -60,3 +102,4 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'registration/search.html',{"message":message})  
+

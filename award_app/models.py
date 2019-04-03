@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-# from tinymce.models import HTMLField
+from tinymce.models import HTMLField
 
 # Create your models here.
 
@@ -45,3 +45,9 @@ class Projects(models.Model):
     def search_by_title(cls,search_term):
         images=Projects.objects.filter(title__icontains=search_term)
         return images 
+
+
+class wingsdMerch(models.Model):
+    name = models.CharField(max_length=40)
+    description = models.TextField()
+    price = models.DecimalField(decimal_places=2, max_digits=20)
