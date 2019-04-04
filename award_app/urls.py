@@ -11,6 +11,7 @@ urlpatterns=[
     url(r'^new/profileform$', views.my_profile, name='myprofile'),
     url(r'^new/project_image$', views.my_picture, name='project_image'),
     url(r'^new/search$', views.search_results, name='search_results'),
+    url(r'^new/rates$', views.my_rates, name='rates'),
     url(r'^ajax/awards_profile/$', views.awards_profile, name='awards_profile'),
     url(r'^ajax/awards_projects/$', views.awards_projects, name='awards_projects'),
     url(r'^api/profile/$', views.ProfileList.as_view()),

@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
-
+from django import forms
 # Create your models here.
 
 class Profile(models.Model):
@@ -45,4 +45,25 @@ class Projects(models.Model):
     def search_by_title(cls,search_term):
         images=Projects.objects.filter(title__icontains=search_term)
         return images 
+
+# class content(models.Model):
+   
+#     name=models.CharField(max_length =2)
+  
+
+
+class Rating(models.Model):
+   
+    design=models.CharField(max_length =2)
+    usability=models.CharField(max_length =2)
+    # content=models.ManyToManyField(content)      
+    content=models.CharField(max_length =2)
+
+    @classmethod
+    def get_rates(cls,id):
+        Rating.objects.all()
+
+    def save_rates(self):
+        self.save() 
+
 

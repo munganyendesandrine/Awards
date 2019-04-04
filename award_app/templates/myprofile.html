@@ -35,8 +35,7 @@
                     <strong><u>Posted Projects</u>: {{num_posts}} </strong><br>
                     <br><strong style="color:rgb(5, 122, 158);"><i>Following Are Projects Images. Please Click on Image and View Details!</i> </strong>
 
-               
-                    
+                   
 
               <div class="imgnew">
                 <div class="row">
@@ -63,6 +62,7 @@
                           <img src="{{j.image_landing_page.url}}" class="img-responsive" alt="Image"><br>
                           <p style="color:green;"><u>Description</u>: {{ j.detailed_description }}</p> 
                           <p style="color:green;"><u>Link To Live Site</u>:{{ j.link_to_livesite }}</p>
+                          
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -73,6 +73,13 @@
      
                 <!--end of modals for project details-->
                   {% endfor %}
+                  {% for z in rating %}
+                  <div class="col-md-4">
+                    <strong>{{z.content}}</strong><br>
+                    <!-- <img src="{{i.profile_photo.url}}" class="img-responsive" alt="Image"><br> -->
+                  </div>
+                  {% endfor %}
+                  
               </div><br>
               <div class="row">
                 <div class="col-md-2">
@@ -80,6 +87,9 @@
                 </div>
                 <div class="col-md-2">
                   <p class='text-center'><a href="{%url 'project_image'%}" class="btn btn-primary ">Add Project</a></p>
+                </div>
+                <div class="col-md-2">
+                  <p class='text-center'><a href="{%url 'rates'%}" class="btn btn-primary ">Rate Project</a></p>
                 </div>
               </div>
             
