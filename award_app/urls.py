@@ -12,7 +12,9 @@ urlpatterns=[
     url(r'^new/project_image$', views.my_picture, name='project_image'),
     url(r'^new/search$', views.search_results, name='search_results'),
     url(r'^ajax/awards_profile/$', views.awards_profile, name='awards_profile'),
+    url(r'^ajax/awards_projects/$', views.awards_projects, name='awards_projects'),
     url(r'^api/profile/$', views.ProfileList.as_view()),
+    url(r'^api/projects/$', views.ProjectsList.as_view()),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
