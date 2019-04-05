@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profile,Projects,Rating
+from .models import Profile,Projects,Rating2
 
 class ProfileForm(forms.ModelForm):
     class Meta:
@@ -13,7 +13,7 @@ class ProjectsForm(forms.ModelForm):
 
 class RatingForm(forms.ModelForm):
     class Meta:
-        model = Rating
+        model = Rating2
         exclude = []
         # widgets = {
         #     'content': forms.CheckboxSelectMultiple(),

@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from .models import Profile,Projects,Rating
+from .models import Profile,Projects,Rating2
 from .forms import ProfileForm,ProjectsForm,RatingForm
 from django.http import JsonResponse
 #.............
@@ -44,8 +44,8 @@ class ProjectsList(APIView):
 
 # Create your views here.
 
-def welcome(request):   
-    return render(request,'welcome.html')
+# def welcome(request):   
+#     return render(request,'welcome.html')
 
 @login_required(login_url='/accounts/login/')
 def profile_page(request):
@@ -53,25 +53,22 @@ def profile_page(request):
     img=Profile.objects.all()
     pic=Projects.objects.all()
     num_posts=Projects.objects.all().count()
-    rating=Rating.objects.all()
+    rating=Rating2.objects.all()
     return render(request,'myprofile.html',{"img": img,"pic":pic,"num_posts":num_posts,"rating":rating})
 
 
 # @login_required(login_url='/accounts/login/')
-# def my_profile(request):
-#     current_user = request.user
-#     if request.method == 'POST':
-#         form = ProfileForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             profile = form.save(commit=False)
-#             profile.user = current_user
-#             profile.save()
-#         return redirect('myprofilepage')
+# def rates_like_dislike(request):
+#     rates=[1,2,3,4,5,6,7,8,9,10]
+#     like=0
+#     for i in rates:
+#       like=like+1
+#     return like
+#     liked=Rating2.objects.all()
+#     return render(request,'myprofile.html',{"liked":like})
 
-#     else:
-#         form = ProfileForm()
-#     return render(request, 'profile.html', {"form": form})
-
+# def index(request):
+#     return render(request,'myprofile.html')
 #----------------------------------
 @login_required(login_url='/accounts/login/')
 def my_profile(request):

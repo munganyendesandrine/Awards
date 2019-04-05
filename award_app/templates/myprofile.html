@@ -33,7 +33,7 @@
                 </div>
                 
                     <strong><u>Posted Projects</u>: {{num_posts}} </strong><br>
-                    <br><strong style="color:rgb(5, 122, 158);"><i>Following Are Projects Images. Please Click on Image and View Details!</i> </strong>
+                    <br><strong style="color:rgb(5, 122, 158);"><i>Following Are Projects Images. Please Click on Image and View Details including Rates!</i> </strong>
 
                    
 
@@ -62,34 +62,94 @@
                           <img src="{{j.image_landing_page.url}}" class="img-responsive" alt="Image"><br>
                           <p style="color:green;"><u>Description</u>: {{ j.detailed_description }}</p> 
                           <p style="color:green;"><u>Link To Live Site</u>:{{ j.link_to_livesite }}</p>
+
+                          <div class="col-md-4">
+                            <p class='text-center'><a href="{%url 'rates'%}" class="btn btn-info ">Rate Project</a></p>
+                          </div>
+
+                          {% for z in rating %}
+                          <div class="col-md-4">
+                            <!-- <strong class="info">Design Rates:{{z.design_rate}}</strong><br> -->
+                            <!-- <strong>Content Rates:{{z.content_rate}}</strong><br> -->
+                            <!-- <strong>Usability Rates:{{z.usability_rate}}</strong><br> -->
+                          </div>
                           
+                          <div class="col-md-4">
+                            <p style="color:green;"><strong>Design</strong></p> 
+                            <strong class="info">Design Rates:{{z.design_rate}}</strong><br>
+                            <!-- <p>
+                              <a href="{%url 'rates'%}" class="btn btn-info btn-lg">
+                             
+                                <span class="glyphicon glyphicon-thumbs-up"></span> Like 
+                              
+                             
+                          </a>
+                      
+                        </p>  -->
+                        
+                            <!-- <p>
+                                <a href="#" class="btn btn-info btn-lg">
+                                  <span class="glyphicon glyphicon-thumbs-down"></span> Unlike
+                                </a>
+                            </p> -->
+                          </div>
+                          
+                          <div class="col-md-4">
+                              <p style="color:green;"><strong>Content</strong></p> 
+                              <strong>Content Rates:{{z.content_rate}}</strong><br>
+                              <!-- <p>
+                                <a href="#" class="btn btn-info btn-lg">
+                                 <span class="glyphicon glyphicon-thumbs-up"></span> Like 
+                                </a>
+                              </p> 
+                              
+                              <p>
+                                  <a href="#" class="btn btn-info btn-lg">
+                                    <span class="glyphicon glyphicon-thumbs-down"></span> Unlike
+                                  </a>
+                              </p> -->
+                            </div>
+
+                            <div class="col-md-4">
+                                <p style="color:green;"><strong>Usability</strong></p> 
+                                <strong>Usability Rates:{{z.usability_rate}}</strong><br>
+                                <!-- <p>
+                                  <a href="#" class="btn btn-info btn-lg">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                                  </a>
+                                </p> 
+    
+                                <p>
+                                    <a href="#" class="btn btn-info btn-lg">
+                                      <span class="glyphicon glyphicon-thumbs-down"></span> Unlike
+                                    </a>
+                                </p>-->
+                              </div> 
+                              {% endfor %}
+                          
+                         
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div> 
                       </div>
                     </div>
+                    
                   </div>
-     
+                  
                 <!--end of modals for project details-->
                   {% endfor %}
-                  {% for z in rating %}
-                  <div class="col-md-4">
-                    <strong>Content Rates:{{z.content}}</strong><br>
-                    <strong>Design Rates:{{z.design}}</strong><br>
-                    <!-- <img src="{{i.profile_photo.url}}" class="img-responsive" alt="Image"><br> -->
-                  </div>
-                  {% endfor %}
+                 
                   
               </div><br>
               <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-4">
                   <p class='text-center'><a href="{%url 'myprofile'%}" class="btn btn-primary ">Update Profile</a></p>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-4">
                   <p class='text-center'><a href="{%url 'project_image'%}" class="btn btn-primary ">Add Project</a></p>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-4">
                   <p class='text-center'><a href="{%url 'rates'%}" class="btn btn-primary ">Rate Project</a></p>
                 </div>
               </div>
@@ -105,4 +165,5 @@
 {% endblock %}
 {% block scripts %} {{block.super}}
   <script type="text/javascript" src="{%static 'js/awards.js'%}"></script>
+  <!-- <script type="text/javascript" src="{%static 'js/rates.js'%}"></script> -->
 {% endblock %}

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 from django import forms
+from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 
 class Profile(models.Model):
@@ -46,24 +47,28 @@ class Projects(models.Model):
         images=Projects.objects.filter(title__icontains=search_term)
         return images 
 
-# class content(models.Model):
-   
-#     name=models.CharField(max_length =2)
-  
 
 
-class Rating(models.Model):
+class Rating2(models.Model):
    
-    design=models.CharField(max_length =2)
-    usability=models.CharField(max_length =2)
-    # content=models.ManyToManyField(content)      
-    content=models.CharField(max_length =2)
+    design_rate=models.IntegerField(
+        default=0,
+        validators=[MaxValueValidator(10), MinValueValidator(1)])
+    # design_unlike=models.IntegerField()
+    content_rate=models.IntegerField(
+        default=0,
+        validators=[MaxValueValidator(10), MinValueValidator(1)])
+    # content_unlike=models.IntegerField()
+    usability_rate=models.IntegerField(
+        default=0,
+        validators=[MaxValueValidator(10), MinValueValidator(1)])
+    # usability_unlike=models.IntegerField()
 
     @classmethod
     def get_rates(cls,id):
-        Rating.objects.all()
+        Rating2.objects.all()
 
-    def save_rates(self):
+    def save_rates2(self):
         self.save() 
 
 
