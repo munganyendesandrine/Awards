@@ -63,17 +63,11 @@
                           <p style="color:green;"><u>Description</u>: {{ j.detailed_description }}</p> 
                           <p style="color:green;"><u>Link To Live Site</u>:{{ j.link_to_livesite }}</p>
 
-                          <div class="col-md-4">
-                            <p class='text-center'><a href="{%url 'rates'%}" class="btn btn-info ">Rate Project</a></p>
-                          </div>
-
-                          {% for z in rating %}
-                          <div class="col-md-4">
-                            <!-- <strong class="info">Design Rates:{{z.design_rate}}</strong><br> -->
-                            <!-- <strong>Content Rates:{{z.content_rate}}</strong><br> -->
-                            <!-- <strong>Usability Rates:{{z.usability_rate}}</strong><br> -->
-                          </div>
                           
+                          <!-- <div class="row"> -->
+                          {% for z in rating %}
+                          
+
                           <div class="col-md-4">
                             <p style="color:green;"><strong>Design</strong></p> 
                             <strong class="info">Design Rates:{{z.design_rate}}</strong><br>
@@ -83,15 +77,15 @@
                                 <span class="glyphicon glyphicon-thumbs-up"></span> Like 
                               
                              
-                          </a>
+                              </a>
                       
-                        </p>  -->
+                              </p>  -->
                         
-                            <!-- <p>
+                               <!-- <p>
                                 <a href="#" class="btn btn-info btn-lg">
                                   <span class="glyphicon glyphicon-thumbs-down"></span> Unlike
                                 </a>
-                            </p> -->
+                               </p> -->
                           </div>
                           
                           <div class="col-md-4">
@@ -126,10 +120,14 @@
                                 </p>-->
                               </div> 
                               {% endfor %}
-                          
+                          <!-- </div> -->
                          
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer"><br><br>
+                            <div class="col-md-2">
+                                <p class='text-center'><a href="{%url 'rates'%}" class="btn btn-info ">Rate Project</a></p>
+                              </div>
+                              
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div> 
                       </div>
