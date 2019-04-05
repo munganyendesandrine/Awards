@@ -54,7 +54,8 @@ def profile_page(request):
     pic=Projects.objects.all()
     num_posts=Projects.objects.all().count()
     rating=Rating2.objects.all()
-    return render(request,'myprofile.html',{"img": img,"pic":pic,"num_posts":num_posts,"rating":rating})
+    # total=Rating2.objects.all().sum()
+    return render(request,'myprofile.html',{"img": img,"pic":pic,"num_posts":num_posts,"rating":rating})#,"total":total
 
 
 # @login_required(login_url='/accounts/login/')

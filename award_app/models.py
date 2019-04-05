@@ -67,6 +67,9 @@ class Rating2(models.Model):
     @classmethod
     def get_rates(cls,id):
         Rating2.objects.all()
+    @classmethod
+    def get_total(cls,id):
+        Rating2.objects.all().sum()
 
     def save_rates2(self):
         self.save() 
